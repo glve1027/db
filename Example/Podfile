@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'db_Example' do
+  pod 'db', :path => '../'
+
+  target 'db_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
