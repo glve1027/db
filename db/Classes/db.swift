@@ -7,22 +7,20 @@
 
 import Foundation
 
-public protocol DataBaseProtocol {
-    func handle(data: [String: AnyObject]?)
-}
-public class SaveManager: DataBaseProtocol {
-    public func handle(data: [String: AnyObject]?) {}
-}
-public class DeleteManager {
-    public func handle(data: [String: AnyObject]?) {}
-}
-public class FetchManager {
-    public func handle(data: [String: AnyObject]?) {}
+public enum tableType {
+    case event
+    case seaEvent
 }
 
 public class DBManager {
-    public static let shared = DBManager()
-    public let save: SaveManager = SaveManager()
-    public let delete: DeleteManager = DeleteManager()
-    public let fetch: FetchManager = FetchManager()
+    let type: tableType
+    public init(type: tableType) {
+        self.type = type
+        // create specific table
+    }
+    public func save(data: [String: AnyObject]?) {}
+    public func delete(ids: Set<Int64>) {}
+    public func fetch() -> [String: AnyObject]? {
+        return nil
+    }
 }
