@@ -1,0 +1,6 @@
+framework module db {
+  umbrella header "db-umbrella.h"
+
+  export *
+  module * { export * }
+}
